@@ -31,7 +31,7 @@ print("Введите")
 s = int(input("сумму чисел (положительная и не больше 2000) "))
 p = int(input("произведение чисел (положительное и не больше 1000000) "))
 a = 0
-if 0 < s <=2000 and 0 < p <= 1_000_000:
+if 0 < s <= 2000 and 0 < p <= 1_000_000:
     for x in range(1, 1001):
         for y in range(1, 1001):
             if s == x + y and p == x * y:
@@ -47,8 +47,10 @@ else:
 """
 Y = int(input("До какой степени выводить?(степени целые) "))
 if Y >= 0:
-    for k in range(Y+1):
+    k = 0
+    while k <= Y:
         print(f"2 ** {k} = {2 ** k}")
+        k += 1
 else:
-    for k in range(0, Y-1, -1):
+    for k in range(0, Y - 1, -1):
         print(f"2 ** {k} = {2 ** k}")
