@@ -66,7 +66,7 @@ print()
 # 123456 -> no
 print("----06----")
 
-number = str("534345") # input("Введит номер билета ")
+number = str("534345")  # input("Введит номер билета ")
 yes = "yes"
 no = "no"
 
@@ -101,3 +101,4 @@ no = "no"
 
 a = bool(path % row == 0 or path % column == 0)
 print(f"{row} {column} {path} -> {yes if a else no}")
+
