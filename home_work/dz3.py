@@ -19,7 +19,7 @@ print("----16----")
 list_ = []
 list_len = int(input("Колличество чисел "))
 for _ in range(list_len):
-    list_.append(randint(0, 1000))
+    list_.append(randint(0, 10_000))
 print(list_)
 
 x = int(input("Искомое "))
@@ -107,6 +107,8 @@ for i in range(len(tuple_)):
         else:
             el = tuple_[i]
             break
+    else:
+        el = tuple_[i]
 end = perf_counter()
 print(f"sort = {el}")
 so = end - start
@@ -183,6 +185,7 @@ def sum_value(word_, values):
     val = 0
     for letter in word_:
         val += values.get(letter, 0)
+        # val += values[letter]
     return val
 
 
