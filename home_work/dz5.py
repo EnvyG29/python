@@ -10,7 +10,7 @@ from random import randint
 print("---3*--")
 
 
-def rand_word(lang, n):
+def rand_word(lang, h):
     eng = {1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h", 9: "i", 10: "j", 11: "k",
            12: "l", 13: "m", 14: "n", 15: "o", 16: "p", 17: "q", 18: "r", 19: "s", 20: "t", 21: "u",
            22: "v", 23: "w", 24: "x", 25: "y", 26: "z"}
@@ -23,20 +23,22 @@ def rand_word(lang, n):
         dict_, letters = eng, 26
     q = 0
     word = ""
-    while q <= n:
+    while q < h:
         word += dict_[randint(1, letters)]
         q += 1
     return word
 
 
-lan = input("ru - русские буквы, eng - английские: ")
-list_input = list(set([rand_word(lan, randint(1, 3)) for i in range(int(input("Длина списка "))+1)]))
+# lan = input("ru - русские буквы, eng - английские: ")
+# n = int(input("минимальная длина псевдо-слова "))
+# m = int(input("максимальная длина псевдо-слова "))
+# list_input = list(set([rand_word(lan, randint(n, m)) for i in range(int(input("Длина списка "))+1)]))
 
-# list_input = ["et", "te", "tea", "tan", "wate", "ate", "nat", "tawe", "bat", "awet", "rteqr", "qwer", "eat"]
+
+list_input = ["et", "te", "tea", "tan", "wate", "ate", "nat", "tawe", "bat", "awet", "rteqr", "qwer", "eat", "batt"]
 
 list_input.sort(key=lambda x: len(x))
 print(list_input)
-
 
 def sort_group(list_):
     list_temp = [[list_[0]]]
@@ -80,6 +82,24 @@ for word in list_input:
     groups.setdefault(key, []).append(word)
 # выводим списки групп
 print(list(groups.values()))
+
+
+def group_letter(input_list):
+    word_dict = {}
+    for word in input_list:
+        if (frozenset(word), len(word)) not in word_dict:
+            word_dict[(frozenset(word), len(word))] = [word]
+        else:
+            word_dict[(frozenset(word), len(word))].append(word)
+    res_list = []
+    for value in word_dict.values():
+        res_list.append(value)
+    return res_list
+
+
+prepod = group_letter(list_input)
+
+print(prepod)
 
 # Дана строка (возможно, пустая), состоящая из букв A-Z:
 #
@@ -150,4 +170,3 @@ rle_2 = RLE_2(letters)
 
 print(rle_1)
 print(rle_2)
-
