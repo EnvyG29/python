@@ -53,6 +53,7 @@ def change():
     list_ = []
     with open('book.csv', 'r', encoding='utf-8') as q:
         for i, k in enumerate(csv.reader(q), start=1):
+            print(i, *k)
             list_.append(k)
         row_del = int(input("Номер строки "))
         if row_del < 1 or row_del > len(list_):

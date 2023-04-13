@@ -43,14 +43,14 @@ def check_inn(inn):
 def check_inn_GPT(in_n):
     if len(in_n) != 12:
         return False
-    n_11n = sum(int(in_n[i]) * [7, 2, 4, 10, 3, 5, 9, 4, 6, 8][i] for i in range(10)) % 11
-    n_12n = sum(int(in_n[i]) * [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8][i] for i in range(11)) % 11
+    inn = [int(i) for i in in_n]
+    n_11n = sum(inn[i] * [7, 2, 4, 10, 3, 5, 9, 4, 6, 8][i] for i in range(10)) % 11
+    n_12n = sum(inn[i] * [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8][i] for i in range(11)) % 11
     if n_11n == 10:
         n_11n = 0
     if n_12n == 10:
         n_12n = 0
-    return int(in_n[10]) == n_11n and int(in_n[11]) == n_12n
-
+    return int(inn[-2]) == n_11n and int(inn[-1]) == n_12n
 
 """задача 2"""
 # result = []
